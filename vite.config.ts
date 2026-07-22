@@ -6,7 +6,7 @@ import ViteYaml from "@modyfi/vite-plugin-yaml"
 export default defineConfig({
   base: "/portfolio/",
   build: {
-    outDir: "docs",
+    outDir: "dist",
   },
   plugins: [
     vue(),
