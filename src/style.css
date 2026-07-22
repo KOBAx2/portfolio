@@ -1,0 +1,153 @@
+:root {
+  --bg: #f8f8f8;
+  --text: #1a1a1a;
+  --sub: #777777;
+  --border: #dedede;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.section {
+  width: 100vw;
+  height: 100vh;
+  
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+}
+
+.section h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+
+  margin-bottom: 64px;
+}
+
+/* Links */
+
+.link-list {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.link-list a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+.link-list a:hover {
+  opacity: 0.5;
+}
+
+/* history */
+
+/* --- 親セクションを画面全体（100vh）にして上下左右中央揃えにする --- */
+.history-section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* タイトルとリストを縦に並べる */
+  justify-content: center; /* 上下中央寄せ */
+  align-items: center;    /* 左右中央寄せ */
+  box-sizing: border-box;
+  overflow: hidden;       /* 画面外へのはみ出し防止 */
+}
+
+/* タイトルがある場合の中央配置と余白設定 */
+.history-section h2 {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* --- 以下、既存の記述（そのまま維持） --- */
+.history-list {
+  list-style: none;
+  display: flex;
+  gap: 48px;
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  /* 最初と最後の要素が中央に来る余白計算 */
+  padding-left: calc(50% - 140px);
+  padding-right: calc(50% - 140px);
+  margin: 0;
+  
+  scrollbar-width: none;
+}
+
+.history-list::-webkit-scrollbar {
+  display: none;
+}
+
+.history-list li {
+  flex: 0 0 280px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.history-list h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.history-list p {
+  margin-top: 12px;
+  color: var(--sub);
+  font-size: 1rem;
+}
+
+#history a {
+    color: inherit;
+}
+
+#history a:visited {
+    color: inherit;
+}
+
+/* About */
+
+.about-text {
+  color: var(--sub);
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  font-size: 1.05rem;
+}
+
+footer {
+  padding: 80px 24px;
+  color: var(--sub);
+}
+
+a svg {
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+a:hover svg {
+  transform: translate(2px, -2px);
+}
