@@ -12,11 +12,23 @@ export function useScroll(sectionSelector = ".section") {
 
   const goToSection = (index: number) => {
   if (isAnimating.value) return
+  
+  // DOM要素を取得
+  const sections = gsap.utils.toArray<HTMLElement>(sectionSelector)
+  const targetSection = sections[index]
+  if (!targetSection) return
+
   isAnimating.value = true
   currentIndex.value = index
 
+  // ★「対象セクションの中心」を「画面の中心」に合わせる計算
+  const targetY =
+    targetSection.offsetTop +
+    targetSection.offsetHeight / 2 -
+    window.innerHeight / 2
+
   gsap.to(window, {
-    scrollTo: { y: index * window.innerHeight, autoKill: false },
+    scrollTo: { y: targetY, autoKill: false },
     duration: 1,
     ease: "power2.inOut",
     onComplete: () => {

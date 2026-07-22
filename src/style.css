@@ -18,10 +18,14 @@ body {
 }
 
 .section {
-  width: 100vw;
-  height: 100vh;
+  width: calc(100% - 32px);
+  height: calc(100vh - 300px);
   
-  min-height: 100vh;
+  margin: 20px auto;
+
+  background: #ffffff;            /* セクションの背景を白にする */
+  border: 1px solid var(--border);/* 枠線を付ける */
+  border-radius: 12px;
 
   display: flex;
   flex-direction: column;
@@ -31,6 +35,10 @@ body {
 
 main {
   width: 100%;
+  overflow: visible;
+
+  padding-top: 130px;
+  padding-bottom: 130px;
 }
 
 .section h2 {
